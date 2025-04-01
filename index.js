@@ -1,4 +1,4 @@
-const res = await fetch("https://attendancetrackerapi.netlify.app/.netlify/functions/signup", {
+const res = await fetch("https://attendancetrackerapi.netlify.app/.netlify/functions/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", // Make sure to set the correct headers
