@@ -1,4 +1,4 @@
-export async function handler(msg) {
+export default async function handler(msg) {
 
   try {
     // Sending POST request to Discord Webhook
@@ -10,23 +10,11 @@ export async function handler(msg) {
       body: JSON.stringify({ content: msg }),
     });
 
-    if (!response.ok) {
+    if (!response.ok)
       console.error('Failed to send message to Discord:', response.statusText);
-      return {
-        statusCode: 500,
-        body: 'Failed to notify Discord',
-      };
-    }
 
-    return {
-      statusCode: 200,
-      body: 'Notification sent to Discord!',
-    };
+    return console.log("Notification sent to Discord!")
   } catch (error) {
     console.error('Error:', error);
-    return {
-      statusCode: 500,
-      body: 'Error occurred while notifying Discord',
-    };
   }
 }
