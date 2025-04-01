@@ -12,6 +12,6 @@ const res = await fetch("https://attendancetrackerapi.netlify.app/.netlify/funct
     console.log("Token:", token);
   } else {
     const error = await res.json();
-    console.error("Login failed:", error);
+    console.error("auth failed:", error);
   }
   
