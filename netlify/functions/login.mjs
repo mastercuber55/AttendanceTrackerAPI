@@ -12,7 +12,7 @@ export async function handler(event) {
   const user = await User.findOne({ username });
 
   if (!user || !(await bcrypt.compare(password, user.password))) {
-    return { statusCode: 401, body: "Invalid email or password" };
+    return { statusCode: 401, body: "Invalid username or password" };
   }
 
   const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: "7d" });
