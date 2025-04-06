@@ -1,8 +1,8 @@
 import genCode from '../utils/genCode.mjs';
 
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const User = require('../utils/User.mjs'); 
+import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
+import User from "../utils/User.mjs"
 
 // --- Main Handler ---
 export default async function (event) {
