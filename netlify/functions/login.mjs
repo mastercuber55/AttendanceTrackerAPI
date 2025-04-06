@@ -17,6 +17,6 @@ export async function handler(event) {
 
   const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: "7d" });
 
-  const result = await notifyDiscord(`**\`${username}\`** just logged in. 😎`);
+  await notifyDiscord(`**\`${username}\`** just logged in. 😎`);
   return { statusCode: 200, body: JSON.stringify({ token }) };
 }
