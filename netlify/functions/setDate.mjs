@@ -52,7 +52,7 @@ export default async function (event) {
       statusCode: 200,
       body: JSON.stringify({
         message: `Marked ${date} as ${status}`,
-        updated: { [date]: status }
+        // updated: { [date]: status }
       }),
     };
   } catch (err) {
