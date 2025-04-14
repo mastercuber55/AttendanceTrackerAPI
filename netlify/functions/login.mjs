@@ -11,9 +11,11 @@ export async function handler(event) {
   const { username, password } = JSON.parse(event.body);
   const user = await User.findOne({ username });
 
-  if (!user || !(await bcrypt.compare(password, user.password))) {
-    return { statusCode: 401, body: "Invalid username or password" };
-  }
+  if (!user)
+    return { statusCode: 401, body: "Invalid username" }
+
+  if(!bcrypt.compare(password, user.password))
+    return { statusCode: 401, body: "Invalid password" };
 
   const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: "7d" });
 
