@@ -1,7 +1,6 @@
-export default async function handler(msg) {
+export default async function discord(msg) {
 
   try {
-    // Sending POST request to Discord Webhook
     const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
       method: 'POST',
       headers: {
