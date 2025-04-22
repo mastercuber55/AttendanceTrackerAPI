@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '@/User.js';
-import notifyDiscord from '@/utils/discord.js';
+import User from '../User.js';
+import notifyDiscord from '../utils/discord.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST')
