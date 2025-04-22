@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import User from "@/utils/User.mjs"
+import User from "@/utils/User.js"
 import discord from "@/utils/discord.js"
 
 export default async function handler(req, res) {
