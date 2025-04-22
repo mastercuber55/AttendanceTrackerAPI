@@ -13,7 +13,10 @@ const AttendanceSchema = new Schema({
 });
 
 const UserSchema = new Schema({
-  name: String,
+  username: {
+    type: String,
+    required: true
+  },
   password: String,
   targetAttendance: {
     type: Number,

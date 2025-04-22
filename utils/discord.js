@@ -10,7 +10,7 @@ export default async function discord(msg) {
     });
 
     if (!response.ok)
-      console.error('Failed to send message to Discord:', response.statusText);
+      return console.error('Failed to send message to Discord:', response.statusText);
 
     return console.log("Notification sent to Discord!")
   } catch (error) {

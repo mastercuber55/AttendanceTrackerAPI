@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import User from "../User.js"
+import genCode from "../utils/genCode.js"
 import discord from "../utils/discord.js"
 
 export default async function handler(req, res) {
@@ -12,11 +13,11 @@ export default async function handler(req, res) {
   try {
     await mongoose.connect(process.env.MONGO_URI);
 
-    const { username, password } = req.body;
-
+    const { username, password } = await JSON.parse(req.body);
     let user = await User.findOne({ username });
+
     if (user)
-      return { statusCode: 400, body: "Already exists" };
+      return res.status(400).send('already exists');
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -32,6 +33,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ token });
   } catch (error) {
     console.error(error);
-    return res.status(500).send('Server Error');
+    return res.status(500).send(genCode());
   }
 }
