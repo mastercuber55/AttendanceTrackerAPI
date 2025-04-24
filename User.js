@@ -34,7 +34,7 @@ const UserSchema = new Schema({
     type: Map,
     of: {
       type: String,
-      enum: ["present", "absent", "holiday"],
+      enum: ["Present", "Absent", "Holiday"],
     },
     default: {},
   },
@@ -42,8 +42,8 @@ const UserSchema = new Schema({
 
 UserSchema.methods.setStatus = function(date, status) {
   this.attendance.set(date, status)
-  if(status == "present") this.totalPresent += 1;
-  else if(status == "absent") this.totalAbsent += 1;
+  // if(status == "present") this.totalPresent += 1;
+  // else if(status == "absent") this.totalAbsent += 1;
 
   return this.save()
 }
